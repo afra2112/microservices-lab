@@ -125,7 +125,7 @@ services:
     restart: unless-stopped
 
   mongodb:
-    container_name: mongo
+    container_name: mongodb
     image: mongo
     ports:
       - "27017:27017"
