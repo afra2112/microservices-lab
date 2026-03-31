@@ -19,6 +19,8 @@ services:
     ports:
       - "8761:8761"
     depends_on:
+      zipkin:
+        condition: service_started
       configserver:
         condition: service_healthy
     networks:
@@ -32,6 +34,7 @@ services:
     depends_on:
       - configserver
       - discovery
+      - zipkin
     networks:
       - microservices-net
 
@@ -43,6 +46,7 @@ services:
     depends_on:
       - configserver
       - discovery
+      - zipkin
     networks:
       - microservices-net
 
@@ -54,6 +58,7 @@ services:
     depends_on:
       - configserver
       - discovery
+      - zipkin
     networks:
       - microservices-net
 
@@ -67,6 +72,7 @@ services:
       - discovery
       - customer
       - product
+      - zipkin
     networks:
       - microservices-net
 
@@ -79,6 +85,7 @@ services:
       - configserver
       - discovery
       - order
+      - zipkin
     networks:
       - microservices-net
 
@@ -92,6 +99,7 @@ services:
       - discovery
       - payment
       - order
+      - zipkin
     networks:
       - microservices-net
 
